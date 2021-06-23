@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4086C310196D4A94005D733F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4086C30F196D4A94005D733F /* main.cpp */; };
-		4086C312196D4A94005D733F /* philos.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4086C311196D4A94005D733F /* philos.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				4086C312196D4A94005D733F /* philos.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -27,7 +25,6 @@
 /* Begin PBXFileReference section */
 		4086C30C196D4A94005D733F /* philos */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = philos; sourceTree = BUILT_PRODUCTS_DIR; };
 		4086C30F196D4A94005D733F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		4086C311196D4A94005D733F /* philos.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = philos.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				4086C30F196D4A94005D733F /* main.cpp */,
-				4086C311196D4A94005D733F /* philos.1 */,
 			);
 			path = philos;
 			sourceTree = "<group>";
@@ -100,6 +96,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 4086C303196D4A94005D733F;
@@ -227,6 +224,7 @@
 				4086C317196D4A94005D733F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
