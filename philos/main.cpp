@@ -1,31 +1,26 @@
-//
-//  main.cpp
-//  philos
-//
-//  Created by Klaus Ahrens on 09.07.14.
-//  Copyright (c) 2014 Klaus Ahrens. All rights reserved.
-//
-
-#include <thread>
 #include <vector>
-#include <chrono>
+#include <thread>
+#include <mutex>
 #include <iostream>
+#include <chrono>
+#include <algorithm>
+#include <string_view>
 
-std::mutex forks[5];
+using namespace std::literals; // all literals
+
+std::mutex forks[5], io;
+
+void log(int i, std::string_view const& msg){
+    std::lock_guard<std::mutex> l{io};
+        std::cout<<"philo nr."<<i<<msg;
+}
 
 void philo(int i) {
-    for (int n=0; n<10;++n) {
-        forks[   i   ].lock();
-        std::cout<<"fork "<<i<<" locked\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        forks[(i+1)%5].lock();
-        std::cout<<"fork "<<(i+1)%5<<" locked\n";
-
-        std::cout<<"philosopher "<<i<<" is eating "
-                 <<"["<<n<<"]\n";
-        forks[(i+1)%5].unlock();
-        forks[   i   ].unlock();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    for (int n=0; n<100;++n) {
+        std::scoped_lock sl(forks[i], forks[(i+1)%5]); // C++17! atomic !
+        log(i, " got both forks\n"s);
+        std::this_thread::sleep_for(1s);
+        log(i, " eats\n"s);
     }
 }
 std::vector<std::thread> philos;
